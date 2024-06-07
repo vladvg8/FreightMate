@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="FreightMate.Views.Logist.TransportationsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FreightMate.Views.Logist"
+             xmlns:viewmodels="clr-namespace:FreightMate.ViewModels.Logist"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="890">
+    <UserControl.DataContext>
+        <viewmodels:TransportationsCommand/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <DataTemplate x:Key="TransportationListPage">
+            <local:TransportationsListPage/>
+        </DataTemplate>
+        <DataTemplate x:Key="NewTrasportationPage">
+            <local:NewTransportationPage/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ContentControl Content="{Binding}">
+            <ContentControl.Style>
+                <Style TargetType="{x:Type ContentControl}">
+                    <Setter Property="ContentTemplate" Value="{StaticResource TransportationListPage}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CurrentPage}" Value="0">
+                            <Setter Property="ContentTemplate" Value="{StaticResource TransportationListPage}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding CurrentPage}" Value="1">
+                            <Setter Property="ContentTemplate" Value="{StaticResource NewTrasportationPage}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</UserControl>

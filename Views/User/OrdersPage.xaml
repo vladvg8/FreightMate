@@ -1,0 +1,211 @@
+﻿<UserControl x:Class="FreightMate.Views.User.OrdersPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+             xmlns:local="clr-namespace:FreightMate.Views.User"
+             xmlns:viewmodels="clr-namespace:FreightMate.ViewModels.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="890">
+    <UserControl.DataContext>
+        <viewmodels:OrdersCommand/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0 0 0 1">
+            <Grid>
+                <Button Width="25" Height="25" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Command="{Binding Refresh}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\..\Resources\Images\UserContent\Requests\RefreshButton.png"/>
+                </Button>
+            </Grid>
+        </Border>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Orders}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0" VerticalContentAlignment="Top" Margin="0 5 0 0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="IsHitTestVisible" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Background="{TemplateBinding Background}" Margin="11 0 0 15">
+                                    <ContentPresenter />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" VerticalAlignment="Top"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Border Width="277" BorderThickness="1" CornerRadius="3" BorderBrush="Black" VerticalAlignment="Top">
+                        <Grid Margin="-1 -1 -1 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border Background="Black" CornerRadius="3" Height="33" Grid.Row="0">
+                                <TextBlock Text="{Binding Status}" FontFamily="Arial" FontSize="14" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Border>
+                            <StackPanel Margin="10 5 10 10" Grid.Row="1">
+                                <TextBlock FontFamily="Arial" FontSize="20" FontWeight="SemiBold" Margin="10 15 10 0" HorizontalAlignment="Center" TextWrapping="Wrap">
+                                <Run Text="№"/>
+                                <Run Text="{Binding Id}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 15 0 0" TextWrapping="Wrap">
+                                <Run Text="Id заявки:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.Id}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Название:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.Title}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Имя пользователя:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.UserName}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Телефон:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.UserPhoneNumber}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Тип груза:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.CargoType}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Местоположение груза:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.CargoLocationFrom}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Место доставки:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.CargoLocationTo}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Вес груза:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.CargoWeight}"/>
+                                <Run Text="кг"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Объем груза:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.CargoVolume}"/>
+                                <Run Text="м³"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Описание:" Foreground="#787878"/>
+                                <Run Text="{Binding Request.Description}"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                <Run Text="Цена:" Foreground="#787878"/>
+                                <Run Text="{Binding Price}"/>
+                                <Run Text="BYN"/>
+                                </TextBlock>
+                                <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="Ожидает обработки логистом">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="Удален">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                <Run Text="Ожидаемое время доставки:" Foreground="#787878"/>
+                                <Run Text="{Binding ExpectedDeliveryTime}"/>
+                                </TextBlock>
+                            </StackPanel>
+                            <TextBlock Grid.Row="2" Margin="10 0 10 10" Foreground="Red" FontSize="13" FontFamily="Arial" FontWeight="Medium" Text="{Binding DeniedMessage}" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Удален">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Button Cursor="Hand" Grid.Row="3" Width="20" Height="20" Margin="10 0 0 10" Grid.Column="3" Background="Red" BorderThickness="0" HorizontalAlignment="Left" Command="{Binding DataContext.DeleteOrder,  RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Path=Id}">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="3">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Удален">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Image Width="15" Height="15" Source="..\..\Resources\Images\UserContent\Requests\TrashBinIcon.png"/>
+                            </Button>
+                            <StackPanel Grid.Row="3" Margin="10 0 10 10">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Выбор времени приема груза">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <Button Style="{DynamicResource MyButton}" FontSize="14" Height="30" Background="Green" Cursor="Hand" Command="{Binding DataContext.ChooseDeliveryTime, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Id}">Выбрать время </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

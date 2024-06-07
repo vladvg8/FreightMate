@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\Labs\OOP\FreightMate\FreightMate\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Admin\AdminMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\NewUserPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\OrdersAdminPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\RequestsAdminPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\TransportationsAdminPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\UsersAdminPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\UsersListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Admin\WelcomeAdminPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Authorization\Authentication.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Authorization\Registration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\CarriagesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\KnowledgeBasePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\LogistMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\NewRailTransportation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\NewTransportationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\OrdersLogistPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\RailTransportationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\RailTransportationsList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\TransportationsListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\TransportationsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Logist\WelcomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User\NewRequestPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User\OrdersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User\RequestsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User\UserMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User\WelcomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Styles\ElementsStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\AdminMainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\NewUserPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\OrdersAdminPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\RequestsAdminPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\TransportationsAdminPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\UsersAdminPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\UsersListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Admin\WelcomeAdminPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Authorization\Authentication.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Authorization\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Authorization\Registration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\CarriagesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\KnowledgeBasePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\LogistMainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\NewRailTransportation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\NewTransportationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\OrdersLogistPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\RailTransportationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\RailTransportationsList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\TransportationsListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\TransportationsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Logist\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\User\NewRequestPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\User\OrdersPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\User\RequestsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\User\UserMainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\User\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

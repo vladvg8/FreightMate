@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="FreightMate.Views.Logist.WelcomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FreightMate.Views.Logist"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="890">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock FontFamily="Arial" FontWeight="Bold" FontSize="40" HorizontalAlignment="Center">Добро пожаловать!</TextBlock>
+            <TextBlock FontFamily="Arial" FontWeight="Regular" FontSize="20" Margin="0 20 0 0" HorizontalAlignment="Center">FreightMate всего поможет!</TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

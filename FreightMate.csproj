@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\AuthorizationContent\backgroundImage.png" />
+    <None Remove="Resources\Images\CarrigesContent\Boxcar.jpg" />
+    <None Remove="Resources\Images\CarrigesContent\GondolaCar.png" />
+    <None Remove="Resources\Images\CarrigesContent\Hopper.jpg" />
+    <None Remove="Resources\Images\CarrigesContent\IsothermalCar.jpg" />
+    <None Remove="Resources\Images\CarrigesContent\Platform.jpg" />
+    <None Remove="Resources\Images\CarrigesContent\Tank.png" />
+    <None Remove="Resources\Images\CarrigesContent\TransporterCar.jpg" />
+    <None Remove="Resources\Images\logo.png" />
+    <None Remove="Resources\Images\LogoIcon.png" />
+    <None Remove="Resources\Images\UserContent\Requests\PenIcon.png" />
+    <None Remove="Resources\Images\UserContent\Requests\RefreshButton.png" />
+    <None Remove="Resources\Images\UserContent\Requests\TrashBinIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\CarriageIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\CustomerIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\KnowledgesIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\OrderIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\RequestIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\TrainIcon.png" />
+    <None Remove="Resources\Images\UserContent\Sidebar\TransportationIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\AuthorizationContent\backgroundImage.png" />
+    <Resource Include="Resources\Images\CarrigesContent\Boxcar.jpg" />
+    <Resource Include="Resources\Images\CarrigesContent\GondolaCar.png" />
+    <Resource Include="Resources\Images\CarrigesContent\Hopper.jpg" />
+    <Resource Include="Resources\Images\CarrigesContent\IsothermalCar.jpg" />
+    <Resource Include="Resources\Images\CarrigesContent\Platform.jpg" />
+    <Resource Include="Resources\Images\CarrigesContent\Tank.png" />
+    <Resource Include="Resources\Images\CarrigesContent\TransporterCar.jpg" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\TrainIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.11.3" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\logo.png" />
+    <Resource Include="Resources\Images\LogoIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Requests\PenIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Requests\RefreshButton.png" />
+    <Resource Include="Resources\Images\UserContent\Requests\TrashBinIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\CarriageIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\CustomerIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\KnowledgesIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\OrderIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\RequestIcon.png" />
+    <Resource Include="Resources\Images\UserContent\Sidebar\TransportationIcon.png" />
+  </ItemGroup>
+
+</Project>

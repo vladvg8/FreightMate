@@ -1,0 +1,53 @@
+﻿<Window x:Class="FreightMate.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FreightMate.Views.Authorization"
+        xmlns:viewmodels="clr-namespace:FreightMate.ViewModels.Authorization"
+        mc:Ignorable="d"
+        Title="FreightMate - Авторизация" Height="700" Width="1280"
+        ResizeMode="CanMinimize"
+        FontFamily="Arial">
+    <Window.Icon>
+        <BitmapImage UriSource="..\..\Resources\Images\LogoIcon.png"/>
+    </Window.Icon>
+    <Window.DataContext>
+        <viewmodels:AuthorizationCommand/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="Authentication">
+            <local:Authentication DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="Registration">
+            <local:Registration DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="../../Resources/Images/AuthorizationContent/backgroundImage.png"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Image Source="../../Resources/Images/logo.png" Grid.Column="0" Width="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 50 0 0"/>
+        </Grid>
+        <ContentControl Grid.Column="1" Content="{Binding}" Width="550" Height="574" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0"> 
+            <ContentControl.Style>
+                <Style TargetType="{x:Type ContentControl}">
+                    <Setter Property="ContentTemplate" Value="{StaticResource Authentication}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CurrentPageNumber}" Value="0">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Authentication}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding CurrentPageNumber}" Value="1">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Registration}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>

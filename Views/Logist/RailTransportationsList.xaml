@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="FreightMate.Views.Logist.RailTransportationsList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FreightMate.Views.Logist"
+             mc:Ignorable="d" 
+             FontFamily="Arial"
+             d:DesignHeight="600" d:DesignWidth="890">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0 0 0 1">
+            <Grid>
+                <Button Width="25" Height="25" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Command="{Binding Refresh}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="..\..\Resources\Images\UserContent\Requests\RefreshButton.png"/>
+                </Button>
+                <Button Width="250" Height="35" HorizontalAlignment="Right" Style="{DynamicResource MyButton}" Command="{Binding OpenNewRailTransportation}" Margin="0 0 0 10">Новая жд перевозка</Button>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Margin="0 10 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="3" Height="Auto" VerticalAlignment="Top">
+                <StackPanel Margin="10" Height="Auto" Width="200">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" FontSize="13">Номер жд перевозки</TextBlock>
+                        <TextBox Margin="0 5 0 0" Height="25" FontSize="13" Style="{DynamicResource RoundTextBox}" Text="{Binding SearchingId}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0 15 0 0">
+                        <TextBlock FontWeight="SemiBold" FontSize="13">Номер заказа</TextBlock>
+                        <TextBox Margin="0 5 0 0" Height="25" FontSize="13" Style="{DynamicResource RoundTextBox}" Text="{Binding SearchingOrderId}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0 15 0 0">
+                        <TextBlock FontWeight="SemiBold" FontSize="13">Номер вагона</TextBlock>
+                        <TextBox Margin="0 5 0 0" Height="25" FontSize="13" Style="{DynamicResource RoundTextBox}" Text="{Binding SearchingCarriageId}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0 15 0 0">
+                        <TextBlock FontWeight="SemiBold" FontSize="13">Статус жд перевозки</TextBlock>
+                        <ComboBox Margin="0 5 0 0" Height="25" FontSize="13" Style="{DynamicResource ComboBoxFlatStyle}" Text="{Binding SearchingStatus}">
+                            <ComboBoxItem Content="Активна"/>
+                            <ComboBoxItem Content="Завершена"/>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="0 15 0 0">
+                        <Button Style="{DynamicResource MyButton}" Command="{Binding ApplyFilter}" FontSize="14" Height="25">Применить</Button>
+                        <Button Style="{DynamicResource MyButton}" Command="{Binding ClearFilter}" FontSize="14" Height="25" Margin="0 10 0 0" Background="Red">Сбросить</Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <ListBox Grid.Column="1" ItemsSource="{Binding RailTransportations}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0" VerticalContentAlignment="Top">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="IsHitTestVisible" Value="True"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" VerticalAlignment="Top"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <Border Width="277" BorderThickness="1" CornerRadius="3" BorderBrush="Black" VerticalAlignment="Top" Margin="30 0 0 15">
+                            <Grid Margin="-1 -1 -1 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Border Background="Black" CornerRadius="3" Height="33" Grid.Row="0">
+                                    <TextBlock Text="{Binding Status}" FontFamily="Arial" FontSize="14" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                </Border>
+                                <StackPanel Margin="10 5 10 10" Grid.Row="1">
+                                    <TextBlock FontFamily="Arial" FontSize="20" FontWeight="SemiBold" Margin="10 15 10 0" HorizontalAlignment="Center" TextWrapping="Wrap">
+            <Run Text="№"/>
+            <Run Text="{Binding Id}"/>
+                                    </TextBlock>
+                                    <TextBlock FontFamily="Arial" FontSize="13" Margin="0 15 0 0" TextWrapping="Wrap">
+<Run Text="Id заказа:" Foreground="#787878"/>
+<Run Text="{Binding Order.Id}"/>
+                                    </TextBlock>
+                                    <TextBlock FontFamily="Arial" FontSize="13" Margin="0 15 0 0" TextWrapping="Wrap">
+<Run Text="Id вагона:" Foreground="#787878"/>
+<Run Text="{Binding Carriage.Id}"/>
+                                    </TextBlock>
+                                    <TextBlock FontFamily="Arial" FontSize="13" Margin="0 10 0 0" TextWrapping="Wrap">
+            <Run Text="Маркер связи:" Foreground="#787878"/>
+            <Run Text="{Binding Token}"/>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Row="3" Margin="10 0 10 10">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="Активна">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <Button Style="{DynamicResource MyButton}" FontSize="14" Height="30" Background="Green" Cursor="Hand" Command="{Binding DataContext.CloseRailTransportation, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Id}">Завершить перевозку</Button>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="FreightMate.Views.User.NewRequestPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FreightMate.Views.User"
+             xmlns:viewmodels="clr-namespace:FreightMate.ViewModels.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="890">
+    <UserControl.DataContext>
+        <viewmodels:NewRequestCommand/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="430"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Название заявки</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" Text="{Binding Path=Request.Title}" Height="35" Margin="0 10 0 0" MaxLength="50"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Ваше имя</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" Text="{Binding Path=Request.UserName}" MaxLength="20" Height="35" Margin="0 10 0 0"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Ваш номер телефона</Run>
+                <Run FontSize="13">(+375ххххххххх)</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" Text="{Binding Path=Request.UserPhoneNumber}" Height="35" Margin="0 10 0 0"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Тип груза</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <ComboBox Width="430" Height="35" Margin="0 10 0 0" FontSize="15" Background="White" Text="{Binding Path=Request.CargoType}" Style="{DynamicResource ComboBoxFlatStyle}">
+                <ComboBoxItem Width="430">
+                    <ComboBoxItem.Content>
+                        <TextBlock>Габаритный или сыпучий груз</TextBlock>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+                <ComboBoxItem Width="430">
+                    <ComboBoxItem.Content>
+                        <TextBlock TextWrapping="Wrap">Высокоценные продукты и продукция пищевой промышленности</TextBlock>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+                <ComboBoxItem Width="430" Content="Упакованные, штучные и сыпучие грузы"/>
+                <ComboBoxItem Width="430">
+                    <ComboBoxItem.Content>
+                        <TextBlock TextWrapping="Wrap">Сыпучий груз, такие как зерно, цемент, минеральные удобрения</TextBlock>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+                <ComboBoxItem Width="430" Content="Негабаритный и тяжелый груз"/>
+                <ComboBoxItem Width="430" Content="Жидкий и газообразный груз"/>
+                <ComboBoxItem Width="430" Content="Скоропортящийся груз"/>
+                <ComboBoxItem Width="430" Content="Контейнерный груз"/>
+                <ComboBoxItem Width="430" Content="Лес"/>
+                <ComboBoxItem Width="430">
+                    <ComboBoxItem.Content>
+                        <TextBlock TextWrapping="Wrap">Тяжеловесный и крупногабаритный груз</TextBlock>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="4">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Описание заявки</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" MaxLength="300" Text="{Binding Path=Request.Description}" VerticalAlignment="Top" Height="80" Margin="0 10 0 0" TextWrapping="Wrap" VerticalContentAlignment="Top"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="30 0 0 0" >
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Местоположение груза</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" MaxLength="100" Text="{Binding Path=Request.CargoLocationFrom}" Height="35" Margin="0 10 0 0"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="30 0 0 0">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Место доставки</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock> 
+            <TextBox Style="{DynamicResource RoundTextBox}" MaxLength="100" Text="{Binding Path=Request.CargoLocationTo}" Height="35" Margin="0 10 0 0"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Margin="30 0 0 0">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Вес груза (кг)</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" Text="{Binding Path=Request.CargoWeight}" Height="35" Margin="0 10 0 0"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3" Margin="30 0 0 0">
+            <TextBlock FontFamily="Arial" FontWeight="Medium" FontSize="18">
+                <Run>Объем груза (м³)</Run>
+                <Run Foreground="Red"> *</Run>
+            </TextBlock>
+            <TextBox Style="{DynamicResource RoundTextBox}" Text="{Binding Path=Request.CargoVolume}" Height="35" Margin="0 10 0 0"></TextBox>
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="5" Margin="30 0 0 0" Style="{DynamicResource MyButton}" Height="50" VerticalAlignment="Bottom" Command="{Binding InsertNewRequest}">Отправить заявку</Button>
+    </Grid>
+</UserControl>
